@@ -82,13 +82,6 @@ public class MainRESTController {
 		}
 		return sb.toString();
 	}
-	@GetMapping("/rest/getAllFiles")
-	public List<CustomerStatement> getListFiles() throws FileNotFoundException, IOException {
-		File uploadDir = new File(UPLOAD_DIR);
-		File[] files = uploadDir.listFiles();
-		List<CustomerStatement> list = exposeFile.genrateCSVReport(new FileReader(files[0]));
-		return list;
-	}
 	
 	@GetMapping("/rest/getAllFilesNew")
 	public List<CustomerStatement> getListFilesnew() throws FileNotFoundException, IOException {
@@ -96,19 +89,6 @@ public class MainRESTController {
 		File[] files = uploadDir.listFiles();
 		List<CustomerStatement> list = exposeFile.genrateCSVReport(new FileReader(files[0]));
 		return list;
-	}
-
-	// @filename: abc.zip,..
-	@GetMapping("/rest/files/{filename:.+}")
-	public ResponseEntity<Resource> getFile(@PathVariable String filename) throws MalformedURLException {
-		File file = new File(UPLOAD_DIR + "/" + filename);
-		if (!file.exists()) {
-			throw new RuntimeException("File not found");
-		}
-		Resource resource = new UrlResource(file.toURI());
-		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
-				.body(resource);
 	}
 
 }
