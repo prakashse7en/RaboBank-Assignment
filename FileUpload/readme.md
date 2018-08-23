@@ -27,3 +27,15 @@ Files
 * CommonUtil.java
 	* common methods are defined here
 
+* application.properties - file upload properties defined 	
+* web files
+	* angular js files - GetFilesCtrl.js,MainApp.js,UploadFileCtrl.js
+	*html file - upload.html - first file loaded
+	
+Steps:
+------
+* Launch FileUploadApplication.java 
+* localhost:8080/
+* upload given csv file issue.csv
+* click get all customers to display the list of customers
+
