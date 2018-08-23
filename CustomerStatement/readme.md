@@ -29,4 +29,8 @@ Files
 	* pojo class
 * CommonUtil.java	
 	* common methods are declared here
-	
+STEPS
+-----
+* place csv file and xml in the folder and sspecify the path CommonConstants.java for FILE_PATH constant
+* run CustomerStatementReader.java
+
